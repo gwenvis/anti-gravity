@@ -26,6 +26,13 @@
       <script>scripts\scr_player_turn_idle.gml</script>
       <script>scripts\scr_player_turn_running.gml</script>
       <script>scripts\scr_player_vertical.gml</script>
+      <script>scripts\scr_player_slowdown.gml</script>
+      <script>scripts\scr_set_state.gml</script>
+      <script>scripts\state_player_turn.gml</script>
+      <script>scripts\state_player_idle.gml</script>
+      <script>scripts\state_player_running.gml</script>
+      <script>scripts\state_player_stopping.gml</script>
+      <script>scripts\state_player_turn_running.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">

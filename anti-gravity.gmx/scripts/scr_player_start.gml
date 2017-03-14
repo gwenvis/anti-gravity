@@ -12,6 +12,7 @@ movespeed = 3;
 accelspeed = 0.15;
 stopspeed = 0.12;
 dir = 1;
+vaulting = false;
 wantedDir = 1;
 lastMoveTime = 0;
 grav = 1;

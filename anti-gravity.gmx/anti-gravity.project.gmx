@@ -14,7 +14,9 @@
       <sprite>sprites\spr_player_stopping</sprite>
       <sprite>sprites\spr_player_turn</sprite>
       <sprite>sprites\spr_player_idle</sprite>
+      <sprite>sprites\spr_player_run_vault</sprite>
     </sprites>
+    <sprite>sprites\sprite8</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -33,6 +35,9 @@
       <script>scripts\state_player_running.gml</script>
       <script>scripts\state_player_stopping.gml</script>
       <script>scripts\state_player_turn_running.gml</script>
+      <script>scripts\state_player_jump_prepare.gml</script>
+      <script>scripts\scr_player_canjump.gml</script>
+      <script>scripts\state_player_runjump.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">

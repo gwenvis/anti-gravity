@@ -6,3 +6,5 @@ if(image_index >= image_number-1)
    image_xscale = dir;
    scr_set_state(state_player_running);
 }
+
+scr_player_vertical()

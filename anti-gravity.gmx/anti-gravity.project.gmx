@@ -4,21 +4,66 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\cfootstep1</sound>
+    <sound>sound\cfootstep2</sound>
+    <sound>sound\dfootstep1</sound>
+    <sound>sound\dfootstep2</sound>
+    <sound>sound\dfootstep3</sound>
+    <sound>sound\cjump</sound>
+    <sound>sound\djump</sound>
+    <sound>sound\dland</sound>
+    <sound>sound\drums</sound>
+    <sound>sound\bass</sound>
+    <sound>sound\instruments</sound>
+    <sound>sound\melody</sound>
+    <sound>sound\croll</sound>
+    <sound>sound\droll</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_floor</sprite>
+    <sprite>sprites\spr_floor_notop</sprite>
     <sprites name="Player">
       <sprite>sprites\spr_player_run</sprite>
+      <sprite>sprites\spr_player_leap</sprite>
       <sprite>sprites\spr_player_startrun</sprite>
       <sprite>sprites\spr_player_stoprun</sprite>
       <sprite>sprites\spr_player_stopping</sprite>
       <sprite>sprites\spr_player_turn</sprite>
       <sprite>sprites\spr_player_idle</sprite>
+      <sprite>sprites\spr_player_switch</sprite>
+      <sprite>sprites\sprite12</sprite>
       <sprite>sprites\spr_player_run_vault</sprite>
+      <sprite>sprites\spr_playe_runvaultbackup</sprite>
+      <sprite>sprites\spr_player_fall</sprite>
+      <sprite>sprites\spr_player_land_to_idle</sprite>
+      <sprite>sprites\spr_player_land_to_run</sprite>
+      <sprite>sprites\sprite16</sprite>
+      <sprite>sprites\sprite14</sprite>
+      <sprite>sprites\spr_player_dead</sprite>
     </sprites>
     <sprite>sprites\sprite8</sprite>
+    <sprite>sprites\sprite19</sprite>
+    <sprite>sprites\background_transition</sprite>
+    <sprite>sprites\happy_world_background</sprite>
+    <sprite>sprites\grass_block</sprite>
+    <sprite>sprites\dirt_block</sprite>
+    <sprite>sprites\grass_sprite</sprite>
+    <sprite>sprites\spr_dirt_background</sprite>
+    <sprite>sprites\spr_key</sprite>
+    <sprite>sprites\spr_door</sprite>
+    <sprite>sprites\grass_block_diag</sprite>
+    <sprite>sprites\spikes</sprite>
+    <sprite>sprites\sprite_well_bottom</sprite>
+    <sprite>sprites\sprite_well_thingy</sprite>
+    <sprite>sprites\sprite_well_top</sprite>
+    <sprite>sprites\tutorialsprites</sprite>
+    <sprite>sprites\spr_player_checkpoint</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\background1</background>
+    <background>background\water</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="Player">
@@ -30,24 +75,70 @@
       <script>scripts\scr_player_vertical.gml</script>
       <script>scripts\scr_player_slowdown.gml</script>
       <script>scripts\scr_set_state.gml</script>
-      <script>scripts\state_player_turn.gml</script>
-      <script>scripts\state_player_idle.gml</script>
-      <script>scripts\state_player_running.gml</script>
-      <script>scripts\state_player_stopping.gml</script>
-      <script>scripts\state_player_turn_running.gml</script>
-      <script>scripts\state_player_jump_prepare.gml</script>
       <script>scripts\scr_player_canjump.gml</script>
-      <script>scripts\state_player_runjump.gml</script>
+      <scripts name="player_state_machine">
+        <script>scripts\state_player_idle.gml</script>
+        <script>scripts\state_player_running.gml</script>
+        <script>scripts\state_player_runjump.gml</script>
+        <script>scripts\state_player_turn.gml</script>
+        <script>scripts\state_player_stopping.gml</script>
+        <script>scripts\state_player_turn_running.gml</script>
+        <script>scripts\state_player_jump_prepare.gml</script>
+        <script>scripts\state_player_gravity_switch.gml</script>
+        <script>scripts\state_player_gravity_switch_running.gml</script>
+        <script>scripts\state_player_falling.gml</script>
+        <script>scripts\state_player_falling_running.gml</script>
+        <script>scripts\state_player_land_to_idle.gml</script>
+        <script>scripts\state_player_land_to_run.gml</script>
+        <script>scripts\state_player_leap.gml</script>
+        <script>scripts\state_player_leap_prepare.gml</script>
+        <script>scripts\state_player_dead.gml</script>
+      </scripts>
+      <script>scripts\scr_is_grounded.gml</script>
+      <script>scripts\scr_player_apply_gravity.gml</script>
+      <script>scripts\scr_player_vertical_collision.gml</script>
+      <script>scripts\scr_player_footsteps.gml</script>
+      <script>scripts\scr_player_canleap.gml</script>
     </scripts>
+    <script>scripts\scr_key_random_color.gml</script>
+    <script>scripts\scr_start_music.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>
-    <object>objects\obj_floor</object>
-    <object>objects\obj_Base_floor</object>
+    <object>objects\world_background</object>
+    <object>objects\world_transition</object>
+    <object>objects\obj_grass</object>
+    <object>objects\obj_key</object>
+    <object>objects\obj_door</object>
+    <object>objects\obj_door_open</object>
+    <objects name="blocks">
+      <object>objects\obj_Base_floor</object>
+      <object>objects\obj_grass_diag</object>
+      <object>objects\obj_undeground_dirt</object>
+      <object>objects\obj_floor</object>
+      <object>objects\obj_grass_block</object>
+      <object>objects\obj_dirt_block</object>
+      <object>objects\obj_floor_notop</object>
+    </objects>
+    <object>objects\obj_spikes</object>
+    <object>objects\obj_well_1</object>
+    <object>objects\obj_well_2</object>
+    <object>objects\obj_well_3</object>
+    <object>objects\obj_tut</object>
+    <object>objects\obj_music_manager</object>
+    <object>objects\obj_checkpoint</object>
+    <object>objects\obj_speed</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
   </rooms>
+  <constants number="5">
+    <constant name="ON">if</constant>
+    <constant name="ANIM_END">image_index &gt;= image_number - 1</constant>
+    <constant name="STOP_SPEED">0.12</constant>
+    <constant name="ACCELERATION">0.15</constant>
+    <constant name="MOVE_SPEED">3</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>

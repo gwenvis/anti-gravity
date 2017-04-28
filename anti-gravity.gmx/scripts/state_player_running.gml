@@ -5,11 +5,31 @@ if(abs(hspeed) >= movespeed)
 
 sprite_index = spr_player_run;   
 
+if(!scr_is_grounded() && abs(vspeed) > 4)
+{
+    scr_set_state(state_player_falling_running);
+    exit
+}
+
 if(keyboard_check(ord('Z')))
 {
-    if(scr_player_canjump())
-        scr_set_state(state_player_jump_prepare);
+    if(scr_player_canjump()){
+        scr_set_state(state_player_jump_prepare, image_index);
+        exit;
+    }
+    else if(scr_player_canleap()) {
+        scr_set_state(state_player_leap_prepare, image_index);
+        exit;
+    }
 }
+else if(togglegravity && scr_is_grounded())
+{
+    falldir = falldir * -1;
+    scr_set_state(state_player_gravity_switch_running);
+    exit
+}
+
+scr_player_footsteps();
 
 if(moveleft)
 {
@@ -25,3 +45,5 @@ else if(moveright)
 }
 else if(lastMoveTime + 175 < current_time)
     scr_set_state(state_player_stopping);
+    
+scr_player_vertical()
